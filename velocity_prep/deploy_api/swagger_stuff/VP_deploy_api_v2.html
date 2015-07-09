@@ -1,0 +1,896 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Deploy API Reference</title>
+  </head>
+  <body>
+  <h1>Deploy Info</h1>
+    <div class="app-desc">DEPLOY INFO API for WP Engine</div>
+    <div class="app-desc">Contact Info: <a href="natalie@wpengine.com">natalie@wpengine.com</a></div>
+    <div class="app-desc">Version: 1.0.0</div>
+    <div class="license-info">All rights reserved</div>
+  <h2>Access</h2>
+  <div class="method-summary">API endpoint design, Base URL tbd</div>
+  <h2>Methods</h2>
+  
+  
+  
+  <div class="method">
+    <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: /crs/</code></pre></div>
+    <div class="method-tags"> <span class="method-tag">CRs</span></div>
+    <div class="method-summary"><span class="nickname">getAllCRs</span> Get a list of all CRs</div>
+    <div class="method-notes">Returns a list of all CRs.</div>
+
+    <h3 class="field-label">Parameters</h3>
+    <div class="field-items">
+      
+    </div>  <!-- field-items -->
+    <h3 class="field-label">Return type</h3>
+
+    <div class="return-type"><a href="#CRListModel">CRListModel</a></div>
+
+    
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  &quot;cr_list&quot; : [ {
+    &quot;cr_author&quot; : &quot;aeiou&quot;,
+    &quot;cr_id&quot; : 123,
+    &quot;cr_title&quot; : &quot;aeiou&quot;,
+    &quot;cr_date&quot; : &quot;aeiou&quot;,
+    &quot;cr_desc&quot; : &quot;aeiou&quot;
+  } ],
+  &quot;count&quot; : 123
+}</code></pre>
+    
+  </div> <!-- method -->
+  <hr>
+  
+  <div class="method">
+    <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: /crs/list</code></pre></div>
+    <div class="method-tags"> <span class="method-tag">CRs</span></div>
+    <div class="method-summary"><span class="nickname">findCRsbyDate</span> Get a list of CRs by date</div>
+    <div class="method-notes">Returns a list of CRs</div>
+
+    <h3 class="field-label">Parameters</h3>
+    <div class="field-items">
+      <div class="param">start (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Start date for list of CRs, inclusive </div>
+      <div class="param">end (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; End date for list of CRs, exclusive </div>
+      
+    </div>  <!-- field-items -->
+    <h3 class="field-label">Return type</h3>
+
+    <div class="return-type"><a href="#CRListModel">CRListModel</a></div>
+
+    
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  &quot;cr_list&quot; : [ {
+    &quot;cr_author&quot; : &quot;aeiou&quot;,
+    &quot;cr_id&quot; : 123,
+    &quot;cr_title&quot; : &quot;aeiou&quot;,
+    &quot;cr_date&quot; : &quot;aeiou&quot;,
+    &quot;cr_desc&quot; : &quot;aeiou&quot;
+  } ],
+  &quot;count&quot; : 123
+}</code></pre>
+    
+  </div> <!-- method -->
+  <hr>
+  
+  <div class="method">
+    <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: /crs/{cr_id}</code></pre></div>
+    <div class="method-tags"> <span class="method-tag">CRs</span></div>
+    <div class="method-summary"><span class="nickname">findCRbyID</span> Get a single CR</div>
+    <div class="method-notes">Returns a single CR based on a CR ID</div>
+
+    <h3 class="field-label">Parameters</h3>
+    <div class="field-items">
+      <div class="param">cr_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of CR to fetch </div>
+      
+    </div>  <!-- field-items -->
+    <h3 class="field-label">Return type</h3>
+
+    <div class="return-type"><a href="#CRModel">CRModel</a></div>
+
+    
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  &quot;cr_author&quot; : &quot;aeiou&quot;,
+  &quot;cr_id&quot; : 123,
+  &quot;cr_title&quot; : &quot;aeiou&quot;,
+  &quot;cr_date&quot; : &quot;aeiou&quot;,
+  &quot;cr_desc&quot; : &quot;aeiou&quot;
+}</code></pre>
+    
+  </div> <!-- method -->
+  <hr>
+  
+  <div class="method">
+    <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: /deploys/</code></pre></div>
+    <div class="method-tags"> <span class="method-tag">Deploys</span></div>
+    <div class="method-summary"><span class="nickname">deploysGet</span> Get a list of all deploys</div>
+    <div class="method-notes">Returns a list of all deploys.</div>
+
+    <h3 class="field-label">Parameters</h3>
+    <div class="field-items">
+      
+    </div>  <!-- field-items -->
+    <h3 class="field-label">Return type</h3>
+
+    <div class="return-type"><a href="#DeployListModel">DeployListModel</a></div>
+
+    
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  &quot;count&quot; : 123,
+  &quot;deploy_list&quot; : [ {
+    &quot;prs&quot; : {
+      &quot;pr_list&quot; : [ {
+        &quot;pr_title&quot; : &quot;aeiou&quot;,
+        &quot;pr_desc&quot; : &quot;aeiou&quot;,
+        &quot;pr_id&quot; : 123,
+        &quot;pr_date&quot; : &quot;aeiou&quot;,
+        &quot;pr_author&quot; : &quot;aeiou&quot;
+      } ],
+      &quot;count&quot; : 123
+    },
+    &quot;release_date&quot; : &quot;aeiou&quot;,
+    &quot;repo&quot; : &quot;aeiou&quot;,
+    &quot;version&quot; : &quot;aeiou&quot;
+  } ]
+}</code></pre>
+    
+  </div> <!-- method -->
+  <hr>
+  
+  <div class="method">
+    <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: /deploys/list</code></pre></div>
+    <div class="method-tags"> <span class="method-tag">Deploys</span></div>
+    <div class="method-summary"><span class="nickname">findDeploysbyDate</span> Get a list of deploys by date</div>
+    <div class="method-notes">Returns a list of deploys</div>
+
+    <h3 class="field-label">Parameters</h3>
+    <div class="field-items">
+      <div class="param">start (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Start date for list of deploys, inclusive </div>
+      <div class="param">end (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; End date for list of deploys, exclusive </div>
+      
+    </div>  <!-- field-items -->
+    <h3 class="field-label">Return type</h3>
+
+    <div class="return-type"><a href="#DeployListModel">DeployListModel</a></div>
+
+    
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  &quot;count&quot; : 123,
+  &quot;deploy_list&quot; : [ {
+    &quot;prs&quot; : {
+      &quot;pr_list&quot; : [ {
+        &quot;pr_title&quot; : &quot;aeiou&quot;,
+        &quot;pr_desc&quot; : &quot;aeiou&quot;,
+        &quot;pr_id&quot; : 123,
+        &quot;pr_date&quot; : &quot;aeiou&quot;,
+        &quot;pr_author&quot; : &quot;aeiou&quot;
+      } ],
+      &quot;count&quot; : 123
+    },
+    &quot;release_date&quot; : &quot;aeiou&quot;,
+    &quot;repo&quot; : &quot;aeiou&quot;,
+    &quot;version&quot; : &quot;aeiou&quot;
+  } ]
+}</code></pre>
+    
+  </div> <!-- method -->
+  <hr>
+  
+  <div class="method">
+    <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: /deploys/{repo}</code></pre></div>
+    <div class="method-tags"> <span class="method-tag">Deploys</span><span class="method-tag">Repo</span></div>
+    <div class="method-summary"><span class="nickname">findDeploysByRepo</span> Get a list of all deploys for a repo</div>
+    <div class="method-notes">Returns an array of deploys for a single repo</div>
+
+    <h3 class="field-label">Parameters</h3>
+    <div class="field-items">
+      <div class="param">repo (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Repo name for list of deploys </div>
+      
+    </div>  <!-- field-items -->
+    <h3 class="field-label">Return type</h3>
+
+    <div class="return-type"><a href="#DeployListModel">DeployListModel</a></div>
+
+    
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  &quot;count&quot; : 123,
+  &quot;deploy_list&quot; : [ {
+    &quot;prs&quot; : {
+      &quot;pr_list&quot; : [ {
+        &quot;pr_title&quot; : &quot;aeiou&quot;,
+        &quot;pr_desc&quot; : &quot;aeiou&quot;,
+        &quot;pr_id&quot; : 123,
+        &quot;pr_date&quot; : &quot;aeiou&quot;,
+        &quot;pr_author&quot; : &quot;aeiou&quot;
+      } ],
+      &quot;count&quot; : 123
+    },
+    &quot;release_date&quot; : &quot;aeiou&quot;,
+    &quot;repo&quot; : &quot;aeiou&quot;,
+    &quot;version&quot; : &quot;aeiou&quot;
+  } ]
+}</code></pre>
+    
+  </div> <!-- method -->
+  <hr>
+  
+  <div class="method">
+    <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: /deploys/{repo}/list</code></pre></div>
+    <div class="method-tags"> <span class="method-tag">Deploys</span><span class="method-tag">Repo</span></div>
+    <div class="method-summary"><span class="nickname">findDeploysByRepoAndDate</span> Get a list of all deploys for a repo for a given date range</div>
+    <div class="method-notes">Returns an array of deploys for a single repo and date range</div>
+
+    <h3 class="field-label">Parameters</h3>
+    <div class="field-items">
+      <div class="param">repo (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Repo name for list of deploys </div>
+      <div class="param">start (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Start date for list of deploys, inclusive </div>
+      <div class="param">end (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; End date for list of deploys, exclusive </div>
+      
+    </div>  <!-- field-items -->
+    <h3 class="field-label">Return type</h3>
+
+    <div class="return-type"><a href="#DeployListModel">DeployListModel</a></div>
+
+    
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  &quot;count&quot; : 123,
+  &quot;deploy_list&quot; : [ {
+    &quot;prs&quot; : {
+      &quot;pr_list&quot; : [ {
+        &quot;pr_title&quot; : &quot;aeiou&quot;,
+        &quot;pr_desc&quot; : &quot;aeiou&quot;,
+        &quot;pr_id&quot; : 123,
+        &quot;pr_date&quot; : &quot;aeiou&quot;,
+        &quot;pr_author&quot; : &quot;aeiou&quot;
+      } ],
+      &quot;count&quot; : 123
+    },
+    &quot;release_date&quot; : &quot;aeiou&quot;,
+    &quot;repo&quot; : &quot;aeiou&quot;,
+    &quot;version&quot; : &quot;aeiou&quot;
+  } ]
+}</code></pre>
+    
+  </div> <!-- method -->
+  <hr>
+  
+  <div class="method">
+    <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: /deploys/{repo}/{version}</code></pre></div>
+    <div class="method-tags"> <span class="method-tag">Deploys</span><span class="method-tag">Version</span></div>
+    <div class="method-summary"><span class="nickname">findDeploysByVersion</span> Get a single deploy with this version number</div>
+    <div class="method-notes">Returns a single deploy</div>
+
+    <h3 class="field-label">Parameters</h3>
+    <div class="field-items">
+      <div class="param">repo (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Repo name for deploy </div>
+      <div class="param">version (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Version of deploy </div>
+      
+    </div>  <!-- field-items -->
+    <h3 class="field-label">Return type</h3>
+
+    <div class="return-type"><a href="#DeployModel">DeployModel</a></div>
+
+    
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  &quot;prs&quot; : {
+    &quot;pr_list&quot; : [ {
+      &quot;pr_title&quot; : &quot;aeiou&quot;,
+      &quot;pr_desc&quot; : &quot;aeiou&quot;,
+      &quot;pr_id&quot; : 123,
+      &quot;pr_date&quot; : &quot;aeiou&quot;,
+      &quot;pr_author&quot; : &quot;aeiou&quot;
+    } ],
+    &quot;count&quot; : 123
+  },
+  &quot;release_date&quot; : &quot;aeiou&quot;,
+  &quot;repo&quot; : &quot;aeiou&quot;,
+  &quot;version&quot; : &quot;aeiou&quot;
+}</code></pre>
+    
+  </div> <!-- method -->
+  <hr>
+  
+  <div class="method">
+    <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: /prs/</code></pre></div>
+    <div class="method-tags"> <span class="method-tag">PRs</span></div>
+    <div class="method-summary"><span class="nickname">getAllPRs</span> Get a list of all PRs</div>
+    <div class="method-notes">Returns a list of all PRs.</div>
+
+    <h3 class="field-label">Parameters</h3>
+    <div class="field-items">
+      
+    </div>  <!-- field-items -->
+    <h3 class="field-label">Return type</h3>
+
+    <div class="return-type"><a href="#PRListModel">PRListModel</a></div>
+
+    
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  &quot;pr_list&quot; : [ {
+    &quot;pr_title&quot; : &quot;aeiou&quot;,
+    &quot;pr_desc&quot; : &quot;aeiou&quot;,
+    &quot;pr_id&quot; : 123,
+    &quot;pr_date&quot; : &quot;aeiou&quot;,
+    &quot;pr_author&quot; : &quot;aeiou&quot;
+  } ],
+  &quot;count&quot; : 123
+}</code></pre>
+    
+  </div> <!-- method -->
+  <hr>
+  
+  <div class="method">
+    <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: /prs/list</code></pre></div>
+    <div class="method-tags"> <span class="method-tag">PRs</span></div>
+    <div class="method-summary"><span class="nickname">findPRsbyDate</span> Get a list of PRs by date</div>
+    <div class="method-notes">Returns a list of PRs</div>
+
+    <h3 class="field-label">Parameters</h3>
+    <div class="field-items">
+      <div class="param">start (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Start date for list of PRs, inclusive </div>
+      <div class="param">end (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; End date for list of PRs, exclusive </div>
+      
+    </div>  <!-- field-items -->
+    <h3 class="field-label">Return type</h3>
+
+    <div class="return-type"><a href="#PRListModel">PRListModel</a></div>
+
+    
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  &quot;pr_list&quot; : [ {
+    &quot;pr_title&quot; : &quot;aeiou&quot;,
+    &quot;pr_desc&quot; : &quot;aeiou&quot;,
+    &quot;pr_id&quot; : 123,
+    &quot;pr_date&quot; : &quot;aeiou&quot;,
+    &quot;pr_author&quot; : &quot;aeiou&quot;
+  } ],
+  &quot;count&quot; : 123
+}</code></pre>
+    
+  </div> <!-- method -->
+  <hr>
+  
+  <div class="method">
+    <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: /prs/{pr_id}</code></pre></div>
+    <div class="method-tags"> <span class="method-tag">PRs</span></div>
+    <div class="method-summary"><span class="nickname">findPRbyID</span> Get a single PR</div>
+    <div class="method-notes">Returns a single PR based on a PR ID</div>
+
+    <h3 class="field-label">Parameters</h3>
+    <div class="field-items">
+      <div class="param">pr_id (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of PR to fetch </div>
+      
+    </div>  <!-- field-items -->
+    <h3 class="field-label">Return type</h3>
+
+    <div class="return-type"><a href="#PRModel">PRModel</a></div>
+
+    
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  &quot;pr_title&quot; : &quot;aeiou&quot;,
+  &quot;pr_desc&quot; : &quot;aeiou&quot;,
+  &quot;pr_id&quot; : 123,
+  &quot;pr_date&quot; : &quot;aeiou&quot;,
+  &quot;pr_author&quot; : &quot;aeiou&quot;
+}</code></pre>
+    
+  </div> <!-- method -->
+  <hr>
+  
+  <div class="method">
+    <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: /tickets/</code></pre></div>
+    <div class="method-tags"> <span class="method-tag">Tickets</span></div>
+    <div class="method-summary"><span class="nickname">getAllTickets</span> Get a list of all tickets</div>
+    <div class="method-notes">Returns a list of all tickets.</div>
+
+    <h3 class="field-label">Parameters</h3>
+    <div class="field-items">
+      
+    </div>  <!-- field-items -->
+    <h3 class="field-label">Return type</h3>
+
+    <div class="return-type"><a href="#TicketListModel">TicketListModel</a></div>
+
+    
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  &quot;count&quot; : 123,
+  &quot;ticket_list&quot; : [ {
+    &quot;ticket_desc&quot; : &quot;aeiou&quot;,
+    &quot;ticket_date&quot; : &quot;aeiou&quot;,
+    &quot;ticket_id&quot; : 123
+  } ]
+}</code></pre>
+    
+  </div> <!-- method -->
+  <hr>
+  
+  <div class="method">
+    <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: /tickets/list</code></pre></div>
+    <div class="method-tags"> <span class="method-tag">Tickets</span></div>
+    <div class="method-summary"><span class="nickname">findTicketsbyDate</span> Get a list of tickets by date</div>
+    <div class="method-notes">Returns a list of tickets</div>
+
+    <h3 class="field-label">Parameters</h3>
+    <div class="field-items">
+      <div class="param">start (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Start date for list of tickets, inclusive </div>
+      <div class="param">end (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; End date for list of tickets, exclusive </div>
+      
+    </div>  <!-- field-items -->
+    <h3 class="field-label">Return type</h3>
+
+    <div class="return-type"><a href="#TicketListModel">TicketListModel</a></div>
+
+    
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  &quot;count&quot; : 123,
+  &quot;ticket_list&quot; : [ {
+    &quot;ticket_desc&quot; : &quot;aeiou&quot;,
+    &quot;ticket_date&quot; : &quot;aeiou&quot;,
+    &quot;ticket_id&quot; : 123
+  } ]
+}</code></pre>
+    
+  </div> <!-- method -->
+  <hr>
+  
+  <div class="method">
+    <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: /tickets/{ticket_id}</code></pre></div>
+    <div class="method-tags"> <span class="method-tag">Tickets</span></div>
+    <div class="method-summary"><span class="nickname">findTicketbyID</span> Get a single ticket</div>
+    <div class="method-notes">Returns a single ticket based on a ticket ID</div>
+
+    <h3 class="field-label">Parameters</h3>
+    <div class="field-items">
+      <div class="param">ticketId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of ticket to fetch </div>
+      
+    </div>  <!-- field-items -->
+    <h3 class="field-label">Return type</h3>
+
+    <div class="return-type"><a href="#TicketModel">TicketModel</a></div>
+
+    
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  &quot;ticket_desc&quot; : &quot;aeiou&quot;,
+  &quot;ticket_date&quot; : &quot;aeiou&quot;,
+  &quot;ticket_id&quot; : 123
+}</code></pre>
+    
+  </div> <!-- method -->
+  <hr>
+  
+  <div class="method">
+    <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: /zabbix/</code></pre></div>
+    <div class="method-tags"> <span class="method-tag">Zabbix</span></div>
+    <div class="method-summary"><span class="nickname">getAllZabbixErrors</span> Get a list of all zabbix errors</div>
+    <div class="method-notes">Returns a list of all zabbix errors.</div>
+
+    <h3 class="field-label">Parameters</h3>
+    <div class="field-items">
+      
+    </div>  <!-- field-items -->
+    <h3 class="field-label">Return type</h3>
+
+    <div class="return-type"><a href="#ZabbixListModel">ZabbixListModel</a></div>
+
+    
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  &quot;zabbix_list&quot; : [ {
+    &quot;zabbix_date&quot; : &quot;aeiou&quot;,
+    &quot;zabbix_id&quot; : 123,
+    &quot;zabbix_desc&quot; : &quot;aeiou&quot;
+  } ],
+  &quot;count&quot; : 123
+}</code></pre>
+    
+  </div> <!-- method -->
+  <hr>
+  
+  <div class="method">
+    <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: /zabbix/list</code></pre></div>
+    <div class="method-tags"> <span class="method-tag">Zabbix</span></div>
+    <div class="method-summary"><span class="nickname">findZabbixbyDate</span> Get a list of zabbix errors by date</div>
+    <div class="method-notes">Returns a list of zabbix errors</div>
+
+    <h3 class="field-label">Parameters</h3>
+    <div class="field-items">
+      <div class="param">start (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Start date for list of zabbix errors, inclusive </div>
+      <div class="param">end (optional)</div>
+
+      <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; End date for list of zabbix errors, exclusive </div>
+      
+    </div>  <!-- field-items -->
+    <h3 class="field-label">Return type</h3>
+
+    <div class="return-type"><a href="#ZabbixListModel">ZabbixListModel</a></div>
+
+    
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  &quot;zabbix_list&quot; : [ {
+    &quot;zabbix_date&quot; : &quot;aeiou&quot;,
+    &quot;zabbix_id&quot; : 123,
+    &quot;zabbix_desc&quot; : &quot;aeiou&quot;
+  } ],
+  &quot;count&quot; : 123
+}</code></pre>
+    
+  </div> <!-- method -->
+  <hr>
+  
+  <div class="method">
+    <div class="method-path"><pre class="get"><code class="huge"><span>get</span>: /zabbix/{zabbix_id}</code></pre></div>
+    <div class="method-tags"> <span class="method-tag">Zabbix</span></div>
+    <div class="method-summary"><span class="nickname">findZabbixbyID</span> Get a single zabbix error</div>
+    <div class="method-notes">Returns a single zabbix error based on a ticket ID</div>
+
+    <h3 class="field-label">Parameters</h3>
+    <div class="field-items">
+      <div class="param">zabbixId (required)</div>
+
+      <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; ID of zabbix error to fetch </div>
+      
+    </div>  <!-- field-items -->
+    <h3 class="field-label">Return type</h3>
+
+    <div class="return-type"><a href="#ZabbixModel">ZabbixModel</a></div>
+
+    
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  &quot;zabbix_date&quot; : &quot;aeiou&quot;,
+  &quot;zabbix_id&quot; : 123,
+  &quot;zabbix_desc&quot; : &quot;aeiou&quot;
+}</code></pre>
+    
+  </div> <!-- method -->
+  <hr>
+  
+  
+
+  <h2>Models</h2>
+  
+  
+  <div class="model">
+    <h3 class="field-label"><a name="PRListModel">PRListModel</a></h3>
+    <div class="field-items">
+      <div class="param">count </div><div class="param-desc"><span class="param-type">Integer</span> </div>
+      <div class="param">pr_list </div><div class="param-desc"><span class="param-type">array[PRModel]</span> </div>
+      
+    </div>  <!-- field-items -->
+  </div>
+  
+  
+  
+  <div class="model">
+    <h3 class="field-label"><a name="PRModel">PRModel</a></h3>
+    <div class="field-items">
+      <div class="param">pr_id </div><div class="param-desc"><span class="param-type">Integer</span> </div>
+      <div class="param">pr_title </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">pr_desc </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">pr_date </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">pr_author </div><div class="param-desc"><span class="param-type">String</span> </div>
+      
+    </div>  <!-- field-items -->
+  </div>
+  
+  
+  
+  <div class="model">
+    <h3 class="field-label"><a name="CRListModel">CRListModel</a></h3>
+    <div class="field-items">
+      <div class="param">count </div><div class="param-desc"><span class="param-type">Integer</span> </div>
+      <div class="param">cr_list </div><div class="param-desc"><span class="param-type">array[CRModel]</span> </div>
+      
+    </div>  <!-- field-items -->
+  </div>
+  
+  
+  
+  <div class="model">
+    <h3 class="field-label"><a name="CRModel">CRModel</a></h3>
+    <div class="field-items">
+      <div class="param">cr_id </div><div class="param-desc"><span class="param-type">Integer</span> </div>
+      <div class="param">cr_title </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">cr_desc </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">cr_date </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">cr_author </div><div class="param-desc"><span class="param-type">String</span> </div>
+      
+    </div>  <!-- field-items -->
+  </div>
+  
+  
+  
+  <div class="model">
+    <h3 class="field-label"><a name="TicketListModel">TicketListModel</a></h3>
+    <div class="field-items">
+      <div class="param">count </div><div class="param-desc"><span class="param-type">Integer</span> </div>
+      <div class="param">ticket_list </div><div class="param-desc"><span class="param-type">array[TicketModel]</span> </div>
+      
+    </div>  <!-- field-items -->
+  </div>
+  
+  
+  
+  <div class="model">
+    <h3 class="field-label"><a name="TicketModel">TicketModel</a></h3>
+    <div class="field-items">
+      <div class="param">ticket_id </div><div class="param-desc"><span class="param-type">Integer</span> </div>
+      <div class="param">ticket_desc </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">ticket_date </div><div class="param-desc"><span class="param-type">String</span> </div>
+      
+    </div>  <!-- field-items -->
+  </div>
+  
+  
+  
+  <div class="model">
+    <h3 class="field-label"><a name="ZabbixListModel">ZabbixListModel</a></h3>
+    <div class="field-items">
+      <div class="param">count </div><div class="param-desc"><span class="param-type">Integer</span> </div>
+      <div class="param">zabbix_list </div><div class="param-desc"><span class="param-type">array[ZabbixModel]</span> </div>
+      
+    </div>  <!-- field-items -->
+  </div>
+  
+  
+  
+  <div class="model">
+    <h3 class="field-label"><a name="ZabbixModel">ZabbixModel</a></h3>
+    <div class="field-items">
+      <div class="param">zabbix_id </div><div class="param-desc"><span class="param-type">Integer</span> </div>
+      <div class="param">zabbix_desc </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">zabbix_date </div><div class="param-desc"><span class="param-type">String</span> </div>
+      
+    </div>  <!-- field-items -->
+  </div>
+  
+  
+  
+  <div class="model">
+    <h3 class="field-label"><a name="DeployListModel">DeployListModel</a></h3>
+    <div class="field-items">
+      <div class="param">count </div><div class="param-desc"><span class="param-type">Integer</span> </div>
+      <div class="param">deploy_list </div><div class="param-desc"><span class="param-type">array[DeployModel]</span> </div>
+      
+    </div>  <!-- field-items -->
+  </div>
+  
+  
+  
+  <div class="model">
+    <h3 class="field-label"><a name="DeployModel">DeployModel</a></h3>
+    <div class="field-items">
+      <div class="param">version </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">repo </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">release_date </div><div class="param-desc"><span class="param-type">String</span> </div>
+      <div class="param">prs </div><div class="param-desc"><span class="param-type">PRListModel</span> </div>
+      
+    </div>  <!-- field-items -->
+  </div>
+  
+  
+  <style>
+body { 
+	font-family: Trebuchet MS, sans-serif;
+	font-size: 15px;
+	color: #444;
+	margin-right: 24px;
+}
+
+h1	{
+	font-size: 25px;
+}
+h2	{
+	font-size: 20px;
+}
+h3	{
+	font-size: 16px;
+	font-weight: bold;
+}
+hr	{
+	height: 1px;
+	border: 0;
+	color: #ddd;
+	background-color: #ddd;
+	display: none;
+}
+
+.app-desc {
+  clear: both;
+  margin-left: 20px;
+}
+.param-name {
+  width: 100%;
+}
+.license-info {
+  margin-left: 20px;
+}
+
+.license-url {
+  margin-left: 20px;
+}
+
+.model {
+  margin: 0 0 0px 20px;
+}
+
+.method {
+  margin-left: 20px;
+}
+
+.method-notes	{
+	margin: 10px 0 20px 0;
+	font-size: 90%;
+	color: #555;
+}
+
+pre {
+  padding: 10px;
+  margin-bottom: 2px;
+}
+
+pre.get {
+  background-color: #0f6ab4;
+}
+
+pre.post {
+  background-color: #10a54a;
+}
+
+pre.put {
+  background-color: #c5862b;
+}
+
+pre.delete {
+  background-color: #a41e22;
+}
+
+.huge	{
+	color: #fff;
+}
+
+pre.example {
+  background-color: #f3f3f3;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+code {
+  white-space: pre;
+}
+
+.nickname {
+  font-weight: bold;
+}
+
+.method-path {
+  font-size: 1.5em;
+  background-color: #0f6ab4;
+}
+
+.parameter {
+  width: 500px;
+}
+
+.param {
+  width: 500px;
+  padding: 10px 0 0 20px;
+  font-weight: bold;
+}
+
+.param-desc {
+  width: 700px;
+  padding: 0 0 0 20px;
+  color: #777;
+}
+
+.param-type {
+  font-style: italic;
+}
+
+.field-label {
+  padding: 0;
+  margin: 0;
+  clear: both;
+}
+
+.field-items	{
+	padding: 0 0 15px 0;
+	margin-bottom: 15px;
+}
+
+.return-type {
+  clear: both;
+  padding-bottom: 10px;
+}
+
+.param-header {
+  font-weight: bold;
+}
+
+.method-tags {
+  text-align: right;
+}
+
+.method-tag {
+  background: none repeat scroll 0% 0% #24A600;
+  border-radius: 3px;
+  padding: 2px 10px;
+  margin: 2px;
+  color: #FFF;
+  display: inline-block;
+  text-decoration: none;
+}
+  </style>
+  </body>
+</html>

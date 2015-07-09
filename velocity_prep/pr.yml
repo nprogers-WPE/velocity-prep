@@ -1,0 +1,91 @@
+swagger: '2.0'
+info:
+  title: Deploy Info 
+  description: DEPLOY INFO API
+  version: "1.0.0"
+host: tbd
+consumes:
+  - application/json
+produces:
+  - application/json
+basePath: /v1
+paths:
+  /prs/:
+    get:
+      summary: Get a list of all PRs 
+      description: Returns a list of all PRs.
+      tags:
+        - PRs
+      operationId: getAllPRs
+      responses:
+        200:
+          description: The result is an array of PRs
+          schema: 
+            $ref: "#/definitions/PRListModel"
+  /prs/{pr_id}:
+    get:
+      summary: Get a single PR
+      description: Returns a single PR based on a PR ID
+      operationId: findPRbyID
+      tags:
+        - PRs
+      parameters:
+        - name: pr_id
+          required: true
+          in: path
+          description: ID of PR to fetch
+          type: integer
+      responses:
+        200:
+          description: PR response
+          schema: 
+            $ref: "#/definitions/PRModel"
+        404:
+          description: PR not found.
+  /prs/list:
+    get:
+      summary: Get a list of PRs by date
+      description: Returns a list of PRs 
+      operationId: findPRsbyDate
+      tags:
+        - PRs
+      parameters:
+        - name: start
+          required: false
+          in: query
+          description: Start date for list of PRs, inclusive
+          type: string 
+        - name: end
+          required: false
+          in: query
+          description: End date for list of PRs, exclusive
+          type: string
+      responses:
+        200:
+          description: An array of PRs for given date range
+          schema: 
+            $ref: "#/definitions/PRListModel"
+definitions:
+  PRListModel:
+    type: object
+    properties:
+      count:
+        type: integer
+      results:
+        type: array
+        items:
+          $ref: "#/definitions/PRModel"
+  PRModel:
+    type: object
+    required:
+      - pr_id
+    properties:
+      pr_id: 
+        type: integer
+      pr_title: 
+        type: string
+      pr_desc:
+        type: string
+      pr_date:
+        type: string
+      
