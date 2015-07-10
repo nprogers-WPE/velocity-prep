@@ -1,10 +1,12 @@
 var fs = require("fs");
 var async = require("async");
+var path = require('path');
+var Promise = require('es6-promise').Promise;
 
 var Converter = require("csvtojson").Converter;
 var PRs = require('./PRsService');
 
-var DEPLOYS_FILEPATH = '/Users/natalie.rogers/velocity_prep/deploys.csv'
+var DEPLOYS_FILEPATH = path.join(__dirname, '../csv/deploys.csv')
 
 function prCallback(pr_list){
   console.log("current list", pr_list)
@@ -13,13 +15,23 @@ function prCallback(pr_list){
     pr_list.push(data)
   }
 }
+function logit(string, data){
+  console.log(string, data)
+}
 
 
-var findPR = function(pr_list){
-  return function(prID){
-    PRs.findPRbyID(prID, prCallback(pr_list))
-  }
-
+function findPR(pr_id) {
+    var ret;
+    setTimeout
+    PRs.findPRbyID(pr_id, function(data){
+      logit("findPRbyID", data)
+      ret = data
+    })
+    setTimeout( function (){
+      logit("i am returning this", ret)
+      return ret
+    }, 2000)
+    
 }
 
 
@@ -34,8 +46,16 @@ function readDeploysFile(callback) {
     console.log("prs", prs)
     //console.log("test call", findPR('123'))
     pr_list = []
-    async.map(findPR(pr_list), function (err, stuff){ return stuff});
-    console.log("pr_list",pr_list)
+    for (var i = 0; i < prs.length; i++){
+      pr = findPR(prs[i]);
+      console.log("pushing pr to list", pr)
+      pr_list.push(pr)
+    }
+    console.log(pr_list)
+
+    
+    //async.map(findPR(pr_list), function (err, stuff){ return stuff});
+    //console.log("pr_list",pr_list)
 
   })
 

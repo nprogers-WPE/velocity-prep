@@ -1,8 +1,10 @@
 //Converter Class 
 var fs = require("fs");
 var Converter = require("csvtojson").Converter;
+var path = require('path');
 
-var PRS_FILEPATH = '/Users/natalie.rogers/velocity_prep/prs.csv'
+
+var PRS_FILEPATH = path.join(__dirname, '../csv/prs.csv')
 
 function readPRsFile(callback) {
   var fileStream = fs.createReadStream(PRS_FILEPATH);
