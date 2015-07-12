@@ -56,7 +56,7 @@ var findPRsbyIDs = exports.findPRsbyIDs = function (prIds, callback) {
     data.pr_list = data.pr_list.filter(function (pr) {
       return ~prIds.indexOf(pr.pr_id)
     })
-
+    data.count = data.pr_list.length
     callback(data)
   })
 }

@@ -22,6 +22,11 @@ app.get('/zabbix/list', controllers.zabbix.findZabbixbyDate)
 app.get('/zabbix/:id', controllers.zabbix.findZabbixbyID)
 
 app.get('/deploys/', controllers.deploys.getAllDeploys)
+app.get('/deploys/list', controllers.deploys.findDeploysbyDate)
+app.get('/deploys/:repo', controllers.deploys.findDeploysByRepo)
+app.get('/deploys/:repo/list', controllers.deploys.findDeploysByRepoAndDate)
+app.get('/deploys/:repo/:ver', controllers.deploys.findDeploysByVersion)
+
 
 
 var server = app.listen(PORT, function () {

@@ -26,14 +26,10 @@ exports.getAllCRs = function(callback) {
 }
 
 exports.findCRsbyDate = function(start, end, callback) {
-  console.log('start param:', start)
   start = Date.parse(start) || 0
   end   = Date.parse(end)   || Date.now()
 
   function isDateInRange(date) {
-    console.log("start:", start)
-    console.log("date:", date)
-    console.log("end:", end)
     return start <= date && date <= end
   }
 
