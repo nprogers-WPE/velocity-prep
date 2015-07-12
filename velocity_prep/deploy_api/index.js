@@ -1,9 +1,17 @@
 var express = require('express')
 var app 	= express()
 
+var fs = require("fs");
+var path = require('path');
+var INDEX_FILEPATH = path.join(__dirname, 'index.html')
+
 var controllers = require('./controllers')
 
 var PORT = process.env.PORT || 3000
+
+app.get('/', function (request, response){
+	response.sendFile(INDEX_FILEPATH)
+})
 
 app.get('/crs/', controllers.crs.getAllCRs)
 app.get('/crs/list', controllers.crs.findCRsbyDate)
