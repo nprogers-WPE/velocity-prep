@@ -1,8 +1,9 @@
 //Converter Class 
 var fs = require("fs");
+var path = require('path');
 var Converter = require("csvtojson").Converter;
 
-var ZABBIX_FILEPATH = '/Users/natalie.rogers/velocity_prep/zabbix.csv'
+var ZABBIX_FILEPATH = path.join(__dirname, '../csv/zabbix.csv')
 
 function readZabbixFile(callback) {
   var fileStream = fs.createReadStream(ZABBIX_FILEPATH);

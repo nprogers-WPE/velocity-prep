@@ -25,9 +25,9 @@ def generateAuthorList(num_authors):
 def createPrs(authors):
     pr_list = []
     pr_date_id = 1
-    with open('pr_list.csv', 'wb') as csvfile:
+    with open('prs.csv', 'wb') as csvfile:
         write_to_csv = csv.writer(csvfile, delimiter=',', quotechar='"', quoting=csv.QUOTE_NONNUMERIC)
-        write_to_csv.writerow(['pr_id,', 'pr_author,', 'pr_title,', 'pr_date,', 'pr_desc'])
+        write_to_csv.writerow(['pr_id', 'pr_author', 'pr_title', 'pr_date', 'pr_desc'])
         for _ in range(100):
             pr_id = fake.random_int(min=100, max=99999)
             pr_author = random.choice(authors)
@@ -44,7 +44,7 @@ def createPrs(authors):
     return pr_list
 
 def createDeploys(full_pr_list):    
-    with open('deploy_list.csv', 'wb') as csvfile:
+    with open('deploys.csv', 'wb') as csvfile:
         subversion = 1
         pr_min = 1
         pr_max = 10
@@ -54,7 +54,7 @@ def createDeploys(full_pr_list):
         today = DT.datetime.today()
         repos = ['nas2','soapbox','cm','deltas','snappyshot']
         write_to_csv = csv.writer(csvfile, delimiter=',', quotechar='"', quoting=csv.QUOTE_NONNUMERIC)
-        write_to_csv.writerow(['version,', 'release_date,', 'repo,', 'prs'])
+        write_to_csv.writerow(['version', 'release_date', 'repo', 'prs'])
         for _ in range(10):
             version = "1." + str(subversion) + ".0"
             description = "Deploy"
@@ -75,9 +75,9 @@ def createDeploys(full_pr_list):
             # Add Logging
 
 def createCrs(authors):
-    with open('cr_list.csv', 'wb') as csvfile:
+    with open('crs.csv', 'wb') as csvfile:
         write_to_csv = csv.writer(csvfile, delimiter=',', quotechar='"', quoting=csv.QUOTE_NONNUMERIC)
-        write_to_csv.writerow(['cr_author,', 'cr_id,', 'cr_title,', 'cr_date,', 'cr_desc'])
+        write_to_csv.writerow(['cr_author', 'cr_id', 'cr_title', 'cr_date', 'cr_desc'])
         for _ in range(100):
             cr_author = random.choice(authors)
             cr_id = fake.random_int(min=100, max=99999)
@@ -88,9 +88,9 @@ def createCrs(authors):
             # TODO: Add logging
 
 def createTickets():
-    with open('tickets_list.csv', 'wb') as csvfile:
+    with open('tickets.csv', 'wb') as csvfile:
         write_to_csv = csv.writer(csvfile, delimiter=',', quotechar='"', quoting=csv.QUOTE_NONNUMERIC)
-        write_to_csv.writerow(['ticket_id,', 'ticket_date,', 'ticket_desc'])
+        write_to_csv.writerow(['ticket_id', 'ticket_date', 'ticket_desc'])
         for _ in range(1000):
             ticket_id = fake.random_int(min=100, max=99999)
             ticket_date = fake.date_time_between(start_date="-100d", end_date="now")
@@ -100,9 +100,9 @@ def createTickets():
         # TODO: Add logging
 
 def createZabbix():
-    with open('zabbix_list.csv', 'wb') as csvfile:
+    with open('zabbix.csv', 'wb') as csvfile:
         write_to_csv = csv.writer(csvfile, delimiter=',', quotechar='"', quoting=csv.QUOTE_NONNUMERIC)
-        write_to_csv.writerow(['zabbix_id,', 'zabbix_date,', 'zabbix_desc'])
+        write_to_csv.writerow(['zabbix_id', 'zabbix_date', 'zabbix_desc'])
         for _ in range(1000):
             zabbix_id = fake.random_int(min=100, max=99999)
             zabbix_date = fake.date_time_between(start_date="-100d", end_date="now")

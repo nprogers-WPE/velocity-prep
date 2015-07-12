@@ -1,8 +1,9 @@
 //Converter Class 
 var fs = require("fs");
+var path = require('path');
 var Converter = require("csvtojson").Converter;
 
-var TICKETS_FILEPATH = '/Users/natalie.rogers/velocity_prep/tickets.csv'
+var TICKETS_FILEPATH = path.join(__dirname, '../csv/tickets.csv')
 
 function readTicketsFile(callback) {
   var fileStream = fs.createReadStream(TICKETS_FILEPATH);
