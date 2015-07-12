@@ -1,55 +1,40 @@
 var fs = require("fs");
 var async = require("async");
+var path = require('path');
+var Promise = require('es6-promise').Promise;
 
 var Converter = require("csvtojson").Converter;
 var PRs = require('./PRsService');
 
-var DEPLOYS_FILEPATH = '/Users/natalie.rogers/velocity_prep/deploys.csv'
+var DEPLOYS_FILEPATH = path.join(__dirname, '../csv/deploys.csv')
 
-function prCallback(pr_list){
-  console.log("current list", pr_list)
-  return function(data){
-    console.log("current data", data)
-    pr_list.push(data)
-  }
+function getPRSforDeploys(deploys) {
+  var promises = deploys.deploy_list.map(function (deploy) {
+    var prs = deploy.prs.split(' ')
+    return new Promise(function (resolve, reject) {
+      PRs.findPRsbyIDs(prs, resolve)
+    }).then(function (prs) {
+      deploy.prs = prs
+      return deploy
+    })
+  })
+
+  return Promise.all(promises).then(function (results) {
+    return deploys
+  })
 }
-
-
-var findPR = function(pr_list){
-  return function(prID){
-    PRs.findPRbyID(prID, prCallback(pr_list))
-  }
-
-}
-
 
 function readDeploysFile(callback) {
   var fileStream = fs.createReadStream(DEPLOYS_FILEPATH);
   var converter = new Converter({constructResult:true});
 
-  var deploy_list = {}
- 
-  converter.on("record_parsed", function(data){
-    var prs = data.prs.split(" ")
-    console.log("prs", prs)
-    //console.log("test call", findPR('123'))
-    pr_list = []
-    async.map(findPR(pr_list), function (err, stuff){ return stuff});
-    console.log("pr_list",pr_list)
-
-  })
-
   converter.on("end_parsed", function (data) {
-    
-
-
     var deploys = {}
 
-
     deploys.deploy_list = data
-    deploys.count   = data.length
+    deploys.count = data.length
 
-    callback(deploys)
+    getPRSforDeploys(deploys).then(callback)
   })
 
   fileStream.pipe(converter);

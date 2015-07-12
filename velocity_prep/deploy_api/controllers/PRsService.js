@@ -1,8 +1,10 @@
-//Converter Class 
+//Converter Class
 var fs = require("fs");
 var Converter = require("csvtojson").Converter;
+var path = require('path');
 
-var PRS_FILEPATH = '/Users/natalie.rogers/velocity_prep/prs.csv'
+
+var PRS_FILEPATH = path.join(__dirname, '../csv/prs.csv')
 
 function readPRsFile(callback) {
   var fileStream = fs.createReadStream(PRS_FILEPATH);
@@ -39,16 +41,22 @@ exports.findPRsbyDate = function(start, end, callback) {
     data.count = data.pr_list.length
 
     callback(data)
-  })  
+  })
 }
 
 exports.findPRbyID = function(prId, callback) {
-  readPRsFile(function (data) {
-    var prList = data.pr_list
-    var pr = prList.filter(function (pr) {
-      return pr.pr_id == prId
-    })[0]
+  findPRsbyIDs([prId], function (data) {
+    callback(data.pr_list[0])
+  })
+}
 
-    callback(pr)
+var findPRsbyIDs = exports.findPRsbyIDs = function (prIds, callback) {
+  prIds = prIds.map(function (pr) { return +pr })
+  readPRsFile(function (data) {
+    data.pr_list = data.pr_list.filter(function (pr) {
+      return ~prIds.indexOf(pr.pr_id)
+    })
+
+    callback(data)
   })
 }
