@@ -1,14 +1,12 @@
 'use strict';
 
 var url = require('url');
-
-
 var deploys = require('./DeploysService');
 
 
 var deployCallback = function (req, res, next) {
   return function (result) {
-    if(typeof result !== 'undefined') {
+    if (typeof result !== 'undefined') {
       res.setHeader('Content-Type', 'application/json');
       res.end(JSON.stringify(result || {}, null, 2));
     }
